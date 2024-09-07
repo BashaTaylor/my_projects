@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_project.css' %}">
     <title>Edit Project</title>
 </head>
 <body>
     <div class="container">
         <div class="main">
             <h1>Edit Project</h1>
+
+            <!-- Form to edit a project -->
             <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
@@ -19,9 +21,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="description" id="description" cols="40" rows="4" required>{{ project.description }}</textarea>
+                    <label for="technology_used">Technology Used</label>
+                    <textarea name="technology_used" id="technology_used" cols="40" rows="4" required>{{ project.technology_used }}</textarea>
                 </div>
+                
+                
 
                 <div class="form-group">
                     <label for="deployed_link">Deployed Link</label>
@@ -29,7 +33,7 @@
                 </div>
 
                 <div class="button-wrapper">
-                    <button class="btn" type="submit">Update Project</button>
+                    <button class="btn" type="submit">Update</button>
                     <button class="btn" type="button" onclick="window.location.href='/projects/{{ project.id }}'">Cancel</button>
                 </div>
             </form>

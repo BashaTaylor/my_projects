@@ -8,35 +8,30 @@ def projects_list(request):
     return render(request, 'index.html', {'all_projects': all_projects})
 
 
-# def index(request):
-#     context = {
-#         'index': Project.objects.all()
-#     }
-#     return render(request, 'index.html', context)
-
 def new(request):
     return render(request, 'add_project.html')
+
 
 def add_project(request):
     if request.method == 'POST':
         title = request.POST['title']
-        description = request.POST['description']
+        technology_used = request.POST['technology_used']
         deployed_link = request.POST['deployed_link']
 
         # Create a new Project instance
         project = Project.objects.create(
             title=title,
-            description=description,
+            technology_used=technology_used,
             deployed_link=deployed_link
         )
         project.save()
 
         messages.success(request, 'Project added successfully!')
-
-        # Redirect to the projects list page (index page)
         return redirect('projects_list')
 
     return render(request, 'add_project.html')
+
+
 
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
@@ -46,12 +41,13 @@ def edit_project(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == 'POST':
         project.title = request.POST['title']
-        project.description = request.POST['description']
+        project.technology_used = request.POST['technology_used']
         project.deployed_link = request.POST['deployed_link']
         project.save()
         messages.success(request, 'Project updated successfully!')
         return redirect('projects_list')
     return render(request, 'edit_project.html', {'project': project})
+
 
 def delete_project(request, pk):
     project = get_object_or_404(Project, pk=pk)

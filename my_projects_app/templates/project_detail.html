@@ -13,12 +13,12 @@
     <div class="container">
         <div class="main">
             <h1>{{ project.title }}</h1>
-            <p><strong>Description:</strong> {{ project.description }}</p>
-            <p><strong>Deployed Link:</strong> <a href="{{ project.deployed_link }}" target="_blank">{{ project.deployed_link }}</a>Visit Project</p>
+            <p><strong>Technology Used:</strong> {{ project.technology_used }}</p>
+            <p><strong>Deployed Link:</strong> <a href="{{ project.deployed_link }}" target="_blank">{{ project.deployed_link }}</a></p>
 
             <div class="button-wrapper">
                 <button class="btn" type="button" onclick="window.location.href='/projects/{{ project.id }}/edit'">Edit</button>
-                <button class="btn" type="button" onclick="window.location.href='/projects'">Back to Projects</button>
+                <button class="btn" type="button" onclick="window.location.href='/projects'">Home</button>
             </div>
         </div>
     </div>

@@ -14,8 +14,8 @@ class ProjectManager(models.Manager):
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    technology_used = models.TextField()  # Changed from 'description'
     deployed_link = models.URLField(max_length=200, null=True, blank=True)
     
     def __str__(self):
-        return f'<{self.title}, {self.description}, {self.deployed_link})>'
+        return f'<{self.title}, {self.technology_used}, {self.deployed_link})>'

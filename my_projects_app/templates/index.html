@@ -13,12 +13,22 @@
     <div class="container">
         <div class="main">
             <h1>My Projects</h1>
+
+            <!-- Display messages (like success or error notifications) -->
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
             <table>
                 <thead>
                     <tr>
                         <th class="id_column">Id</th>
                         <th class="row_line">Project Title</th>
-                        <th class="row_line">Description</th>
+                        <th class="row_line">Technology Used</th>
                         <th class="row_line">Deployed Link</th>
                         <th class="row_line">Actions</th>
                     </tr>
@@ -28,13 +38,14 @@
                     <tr>
                         <td class="id_column">{{ project.id }}</td>
                         <td class="row_line">{{ project.title }}</td>
-                        <td class="row_line">{{ project.description }}</td>
+                        <td class="row_line">{{ project.technology_used }}</td>
                         <td class="row_line">
-                            <a href="{{ project.deployed_link }}" target="_blank">Visit Project</a>
+                            <a href="{{ project.deployed_link }}" target="_blank" id="deployed_link">Visit Project</a>
                         </td>
                         <td class="row_line">
                             <div id="links_button">
-                                <a id="project_line" href="{% url 'project_detail' project.id %}">View</a><span class="span">|</span>
+                                <a id="project_line" href="{% url 'project_detail' project.id %}">View</a><span
+                                    class="span">|</span>
                                 <a href="{% url 'edit_project' project.id %}">Edit</a><span class="span">|</span>
                                 <form method="POST" id="delete_btn" action="{% url 'delete_project' project.id %}">
                                     {% csrf_token %}
