@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>All Projects</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>My Projects</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="id_column">Id</th>
+                        <th class="row_line">Project Title</th>
+                        <th class="row_line">Description</th>
+                        <th class="row_line">Deployed Link</th>
+                        <th class="row_line">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in all_projects %}
+                    <tr>
+                        <td class="id_column">{{ project.id }}</td>
+                        <td class="row_line">{{ project.title }}</td>
+                        <td class="row_line">{{ project.description }}</td>
+                        <td class="row_line">
+                            <a href="{{ project.deployed_link }}" target="_blank">Visit Project</a>
+                        </td>
+                        <td class="row_line">
+                            <div id="links_button">
+                                <a id="project_line" href="{% url 'project_detail' project.id %}">View</a><span class="span">|</span>
+                                <a href="{% url 'edit_project' project.id %}">Edit</a><span class="span">|</span>
+                                <form method="POST" id="delete_btn" action="{% url 'delete_project' project.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn-all"
+                                        onclick="return confirm('Are you sure you want to delete this project?');">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="button-wrapper">
+            <button class="btn" type="button" onclick="window.location.href='/projects/new'">Add New Project</button>
+        </div>
+    </div>
+</body>
+
+</html>

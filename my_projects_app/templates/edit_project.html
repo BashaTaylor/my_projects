@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Edit Project</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Edit Project</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Project Title</label>
+                    <input type="text" name="title" id="title" value="{{ project.title }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="40" rows="4" required>{{ project.description }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="deployed_link">Deployed Link</label>
+                    <input type="url" name="deployed_link" id="deployed_link" value="{{ project.deployed_link }}" required>
+                </div>
+
+                <div class="button-wrapper">
+                    <button class="btn" type="submit">Update Project</button>
+                    <button class="btn" type="button" onclick="window.location.href='/projects/{{ project.id }}'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

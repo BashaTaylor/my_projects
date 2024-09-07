@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/project_detail.css' %}">
+    <title>{{ project.title }}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>{{ project.title }}</h1>
+            <p><strong>Description:</strong> {{ project.description }}</p>
+            <p><strong>Deployed Link:</strong> <a href="{{ project.deployed_link }}" target="_blank">{{ project.deployed_link }}</a>Visit Project</p>
+
+            <div class="button-wrapper">
+                <button class="btn" type="button" onclick="window.location.href='/projects/{{ project.id }}/edit'">Edit</button>
+                <button class="btn" type="button" onclick="window.location.href='/projects'">Back to Projects</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

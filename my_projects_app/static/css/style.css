@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lora, serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    background-color: #333; /* Optional: Adds a background color for better contrast */
+    padding: 20px 20px 56px 20px; /* Adds padding inside the main div */
+    border-radius: 10px; /* Optional: Rounds the corners of the main div */
+    width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling if necessary */
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: rgb(123, 202, 27);
+}
+
+table {
+    width: 75%;/* Adjust to fit the container */
+    margin: 0 auto; /* Center the table horizontally */
+    text-align: left;
+    color: whitesmoke;
+    background: rgba(13, 5, 99, 0.9); /* Slightly transparent white for better contrast */
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 14px;
+    border: 2px solid rgb(4, 141, 20); /* Add border to cells for better visibility */
+}
+
+th {
+    background-color: #434343; /* Different background for table headers */
+}
+
+.id_column {
+    padding-left: 15px;
+}
+
+.row_line {
+    padding-left: 7px;
+}
+
+#links_button {
+    display: flex;
+    gap: 5px; /* Space between action items */
+    align-items: center; /* Center items vertically */
+}
+
+a, #delete_btn {
+    display: inline-flex; /* Prevent wrapping for links and button */
+    align-items: center;
+}
+
+#delete_btn {
+    text-decoration: underline;
+    color: blue; /* Ensure text color is set */
+}
+
+input {
+    color: rgb(42, 42, 245);
+    background-color: rgba(8, 8, 122, 0.513);
+}
+
+.span {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0 20px 0;
+}
+
+.btn, .btn-all {
+    background-color: blue;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-all {
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.btn:hover {
+    background-color: darkblue;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) { /* Tablet and mobile devices */
+    .container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .main {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    table {
+        width: 100%; /* Ensure the table fits within the container */
+    }
+
+    #links_button {
+        flex-direction: column; /* Stack action items vertically */
+        width: auto; /* Allow width to adjust */
+    }
+}

@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+    font-family: Lora, serif;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content */
+    background-color: black;
+    min-height: 100vh; /* Ensures the container covers the full viewport height */
+    padding: 20px; /* Adds padding around the container */
+    color: whitesmoke;
+}
